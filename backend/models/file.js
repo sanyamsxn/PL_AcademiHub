@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const fileSchema = new mongoose.Schema({
   subject: String,
   filename: String,
-  downladed: String,
+  downloaded: Number,
+  filepath : String,
   
 uploadDate: { type: Date, default: Date.now }
 });

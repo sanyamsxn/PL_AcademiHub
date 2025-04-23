@@ -1,8 +1,86 @@
-const express = require('express');
-const app =  express.Router();
-const verified = require('../util/dashboard')
-app.get('/',verified,(res,req)=>{
-    res.render('filedash')
-})
-app.get
-module.exports = app;
+// controllers/dashboardController.js
+const path = require('path');
+const fs = require('fs');
+const File = require('../models/file'); // Mongoose model
+//const sharp = require('sharp');
+//const libre = require('libreoffice-convert');
+
+exports.getDashboardPage = (req, res) => {
+  res.status(202).send("hello");
+
+};
+
+exports.handleFileUpload = async (req, res) => {
+    console.log("Entering here");
+    console.log(req);
+    const { subject } = req.body;
+    const file = req.file;
+    if(!file){
+        return res.send(404).json({
+            message : "plese uploadfile"
+        })
+    }
+    const newFile = new File({
+        subject: subject,
+        filename: file.filename,
+        filepath: `files/${file.filename}`,
+        downloaded: 0, // Initialize download count
+      });
+      try {
+        await newFile.save();
+        return res.status(200).json({ success: true, message: 'File uploaded successfully'});
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Error saving file ' });
+      }
+
+  // Same as your earlier upload logic (PDF conversion)
+  // Save into MongoDB too (with downloadCount: 0)
+};
+
+exports.handleFileDownload = async (req, res) => {
+    const { filename } = req.query;
+    try{
+        const file  =  await File.findOne({filename : filename});
+        if (!file) {
+            return res.status(404).json({ message: "File not found" });
+          }
+      
+          file.downloaded += 1;
+          await file.save();
+        const fullpath =  path.resolve(file.filepath);
+        return res.download(fullpath);
+
+    }catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      }
+    
+  // Find file by subject or name
+  // Increase downloadCount by 1
+  // Send file as response
+};
+
+exports.getMostDownloadedFiles = async (req, res) => {
+    try{
+        const files = await File.find().sort({downloaded: -1}).limit(20);
+        res.status(200).json({
+            success: true,
+            count : files.length,
+            message : "file get",
+            data : files
+
+
+
+        })}catch (err) {
+            console.error('Error fetching top downloaded files:', err);
+            res.status(500).json({ success: false, message: 'server error ' });
+          }
+        
+    
+    }
+
+ 
+
+
+    

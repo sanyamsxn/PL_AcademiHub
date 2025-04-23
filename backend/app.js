@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv= require('dotenv');
 const authRoutes = require('./routes/authroutes');
+const dashboardRoutes= require('./routes/dashboard')
 const fileRoutes = require('./routes/filesroutes');
 const cors = require('cors');
 // const dashboard = require('./routes/dashboard');
@@ -33,6 +34,7 @@ app.use(cors({
 }));
 // Routes---------
 app.use('/auth', authRoutes);
+app.use('/auth', dashboardRoutes);
 
 // app.use('/dashboard',dashboard);
 
