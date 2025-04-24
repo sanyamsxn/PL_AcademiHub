@@ -18,4 +18,7 @@ router.get('/download', dashboardController.handleFileDownload);
 // Most downloaded files
 router.get('/most-downloaded', dashboardController.getMostDownloadedFiles);
 
+//filterwise files
+router.get ('/files',dashboardController.getsubjectfiles );
+
 module.exports = router;

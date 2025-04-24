@@ -13,18 +13,21 @@ exports.getDashboardPage = (req, res) => {
 exports.handleFileUpload = async (req, res) => {
     console.log("Entering here");
     console.log(req);
-    const { subject } = req.body;
+    const { subject, uploadedBy } = req.body;
     const file = req.file;
     if(!file){
         return res.send(404).json({
             message : "plese uploadfile"
         })
     }
+
+    const trimmed = file.filename.substring(0,15);
     const newFile = new File({
         subject: subject,
-        filename: file.filename,
+        filename: `${trimmed}_manipalMUJ`,
         filepath: `files/${file.filename}`,
         downloaded: 0, // Initialize download count
+        uploadedBy : uploadedBy.split(' ')[0].toUpperCase()
       });
       try {
         await newFile.save();
@@ -69,15 +72,39 @@ exports.getMostDownloadedFiles = async (req, res) => {
             count : files.length,
             message : "file get",
             data : files
-
-
-
         })}catch (err) {
             console.error('Error fetching top downloaded files:', err);
             res.status(500).json({ success: false, message: 'server error ' });
           }
         
     
+    }
+
+
+  
+    exports.getsubjectfiles = async(req,res) =>{
+      const filter = req.query.filter;
+      console.log(filter);
+      try {
+        const files = await File.find({subject : filter})
+
+        if(!files){
+          return res.status(404).json({ message: "File not found" });
+        }
+        
+        console.log(files);
+        res.status(202).json({
+          message : "success",
+          success: true,
+          count : files.length,
+          files : files
+
+        })
+
+      }catch(err){
+        res.status(500).json({ success: false, message: 'server error ' });
+      }
+
     }
 
  
