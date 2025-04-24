@@ -5,7 +5,7 @@ const fileSchema = new mongoose.Schema({
   filename: String,
   downloaded: Number,
   filepath : String,
-  uploadedBy:String,
+  uploadedBy:String,    
   
 uploadDate: { type: Date, default: Date.now }
 });
