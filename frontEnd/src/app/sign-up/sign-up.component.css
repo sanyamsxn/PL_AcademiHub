@@ -1,0 +1,122 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1b2a39, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0a151f, #171b1d);
+    padding: 20px;
+  }
+  
+  .auth-card {
+    /* background: white; */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(255, 255, 255, 0.645);
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .auth-card h2 {
+    margin: 0 0 4rem;
+    text-align: center;
+    font-size: 3.5rem;
+    color:#FFBF00 ;
+    font-family: 'Niconne', cursive;
+        font-weight: 700;
+        text-shadow: 5px 5px 0px #000000, 
+                    10px 10px 0px #0a0347, 
+                    15px 15px 0px #46b59b, 
+                    20px 20px 0px #017e7f, 
+                    25px 25px 0px #052939, 
+                    30px 30px 0px #f6edee
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 900px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    color: #cbcbcb;
+    font-size: 1.3rem;
+  }
+  
+  .form-group input,select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .auth-button {
+    background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #394d61, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #152331, #171b1d);
+    color: white;
+    padding: 0.75rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-button:hover {
+    color: rgb(219, 211, 211);
+    background: #87b4cb;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #9bbbdb, #c5d9e3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #152331, #485e69);
+
+  }
+  
+  .form-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .auth-link {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .auth-link a {
+    color: #FFBF00;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .auth-link a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+    min-width: 250px;
+  }

@@ -1,0 +1,14 @@
+<div class="filter-wrapper">
+    <h2 class="heading">Filter by Course</h2>
+    <div class="checkbox-list">
+      <label class="checkbox-item" *ngFor="let course of courseList">
+        <input
+          type="radio"
+          name="course"
+          (change)="onCheckboxChangeEvent($event, course)"
+        />
+        <span class="label-text">{{ course }}</span>
+      </label>
+    </div>
+  </div>
+  

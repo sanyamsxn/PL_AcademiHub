@@ -1,0 +1,9 @@
+#fileContainer{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    flex-wrap: wrap;
+    gap: 80px;
+}

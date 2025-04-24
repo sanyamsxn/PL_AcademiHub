@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1b2a39, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0a151f, #171b1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+overflow: hidden;
+}
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.blurred-background {
+    filter: blur(5px); /* Adjust the blur intensity */
+    transition: filter 0.3s ease;
+    pointer-events: none;
+  }
+  
+  /* Custom styling for the dialog */
+  .custom-dialog-container {
+    z-index: 1001;
+  }
+  .cdk-global-overlay-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }

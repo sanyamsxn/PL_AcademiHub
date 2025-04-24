@@ -1,0 +1,8 @@
+<div id="box">
+    <img src="assets/file3.png"/>
+    <h5>{{fileData.filename}}</h5>    
+    <button (click)="onDownload(fileData.filename)">Download</button>
+
+    <h4 id="upload">{{fileData.uploadedBy}}</h4>
+    <h4>{{fileData.downloaded}}<img src="assets/download.png"/></h4>
+</div>

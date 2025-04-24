@@ -1,0 +1,12 @@
+
+
+@if(!isLoading){
+    <app-header></app-header>
+    <main class="main-container">
+        <router-outlet></router-outlet>
+    </main>
+}
+
+ @if(isLoading){
+    <app-loader/>
+ }

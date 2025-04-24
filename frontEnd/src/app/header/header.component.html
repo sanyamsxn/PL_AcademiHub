@@ -1,0 +1,26 @@
+
+
+
+    <header>
+        <div id="main">
+            <a routerLink=""><img src="assets/icon2.png"/></a>
+                <h2 class="heading">ACADEMI<span>HUB</span></h2>
+        </div>
+        @if(!user){
+            <div id="register">
+                <a routerLink="/signin"><span>SIGNIN</span></a>
+                <a routerLink="/signup"><span>SIGNUP</span></a>
+            </div>
+        }
+
+        @if(user){
+            <div id="user">
+                <h3>WELCOME, &nbsp; <span >{{getUserName(user.name)}}</span></h3>
+                <a (click)="logOut()"><span>LOGOUT</span></a>
+            </div>
+        }
+    </header>
+
+
+
+

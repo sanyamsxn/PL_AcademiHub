@@ -1,0 +1,38 @@
+.filter-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #FFBF00;
+}
+
+.checkbox-list {
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid #d1d5db; /* light gray vertical line */
+}
+
+.checkbox-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-item:last-child {
+  margin-bottom: 0;
+}
+
+
+.label-text {
+  margin-left: 8px;
+  font-size:1.6rem;
+  color: whitesmoke;
+}
